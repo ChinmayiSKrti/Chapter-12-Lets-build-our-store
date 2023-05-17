@@ -1,0 +1,77 @@
+1.Why redux and why not context?
+->Using contexts for large scale application becomes very tideous job, so redux can be used as it
+manages the data states very well for even big applications
+Google why for more reasons...
+
+2.Cons of using Redux:
+->difficult to setup
+->huge learning curve
+->lot of code copy paste
+->no need to be used for small applications as it comes with these above Cons
+
+3.store at the end of the day is a big Object
+
+4.Who can access redux store? -> all the components in the application.
+
+5.web app is diff and store is diff
+
+6.We will have single store for entire app, but to manage all kinds of data,
+we create logical separation for our store for each kind, called slice
+
+7.Our components can not directly modify the store,
+we can modify the data with the help of action(we dispatch an action)
+
+8.MANTRA for Redux store:
+If we click on the plus button(user action that leads to dispatch of action),
+it dispatches an action, which calls the reducer function,
+which in turn updates the data in that particular slice of our store
+
+9.Okay how to react the slice?
+we use selector(hook) to read the data from the slice of the store,
+as and when the data is updated in the slice of the store,
+all the components that are calling the selector(i.e subscibed to the store),
+will get updated with new data that just got updated in to the slice,
+all those components rerenders and displays new data
+
+10.Install @reduxjs/tollkit and react-redux - core redux and one to bridge btn react and redux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Old menu component - before api change by swiggy
+// <div className="menu">
+    //   <div>
+    //     <h1>Restaurant id : {params?.id}</h1>
+    //     <h2>{restaurantInfo?.cards[0]?.card?.card?.info?.name}</h2>
+    //     <img src={IMG_CDN_URL + restaurantInfo?.cards[0]?.card?.card?.info?.cloudinaryImageId} />
+    //     <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.areaName}</h3>
+    //     <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.city}</h3>
+    //     <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.avgRating} stars</h3>
+    //     <h3>{restaurantInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h3>
+    //   </div>
+    //   <div>
+    //     <h1>Menu</h1>
+    //     <ul>
+    //       {/* {Object.values(restaurantInfo?.menu?.items)?.map((item) => {
+    //         return <li key={item.id}>{item.name}</li>
+    //       })} */}
+    //     </ul>
+    //   </div>
+    // </div>
